@@ -1,0 +1,16 @@
+steps:
+- name: "gcr.io/cloud-builders/gcloud-slim"
+  args:
+  - "functions"
+  - "deploy"
+  - "monitoring-alerts"
+  - "--entry-point"
+  - "monitoring_alerts"
+  - "--region"
+  - "${_GCP_REGION}"
+  - "--runtime"
+  - "python39"
+  - "--trigger-topic"
+  - "monitoring-alerts"
+substitutions:
+  _GCP_REGION: europe-west6
